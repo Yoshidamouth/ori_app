@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 100px 0 30px;
+  box-sizing: border-box; 
+  background-color: #DBDBDB;
+}
+
+.header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 100px; 
+}
+
+.nav-lists {
+  height: 100px;
+  display: flex;
+}
+
+.nav-lists__list {
+  margin-left: 70px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 100px;  
+}
