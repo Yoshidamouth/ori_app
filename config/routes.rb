@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'requests#index'
-  resources :requests, only: :index
+  root to: 'home#index'
+  resources :home, only: :index
 end
