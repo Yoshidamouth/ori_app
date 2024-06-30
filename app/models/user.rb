@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  validates :affiliation_id, presence: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :affiliation
 
-  belongs_to :affiliation
+  validates :name, presence: true
+  validates :affiliation_id, presence: true, numericality: { other_than: 1 ,message: "can't be blank"} 
+
+  # belongs_to :affiliation
   has_many :requests
-  has_many :comments
+  # has_many :comments
 end
