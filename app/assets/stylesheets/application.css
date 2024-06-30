@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+  box-sizing: border-box;
+}
+
+* body {
+  padding-top: 100px; /* Headerの高さに合わせて調整 */
+}
