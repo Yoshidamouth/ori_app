@@ -45,6 +45,7 @@
   font-weight: 600;
   line-height: 70px; 
   padding-top: 10px;
+  letter-spacing: 1px;
   color: #2E457C;
   /* background-color: aqua; */
 }
@@ -52,4 +53,15 @@
 .icon{
   height: 65px;
   width: 65px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logout_icon {
+  height: 65px;
+  width: 65px;
+  display: block;
+  margin: 0 auto;
 }

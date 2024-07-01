@@ -33,7 +33,6 @@
 }
 
 .nav {
-  height: 83px;
   display: flex;
   align-items: center;
   font-family: "Noto Sans JP", sans-serif;
@@ -46,7 +45,7 @@
   margin-left: 70px;
   font-size: 22px;
   font-weight: 600;
-  line-height: 100px;  
+  /* line-height: 100px;   */
 }
 
 .user-nickname {
@@ -71,6 +70,7 @@
 
 .sign-up {
   text-decoration: none;
+  line-height: 32px;
   color: #FFFFFF;
 }
 
