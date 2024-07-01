@@ -1,0 +1,39 @@
+.requests_main{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #E8CBC2;
+  padding: 0 50px 50px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.requests_top{
+  height: 120px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border-bottom: 1px solid #C57F78; 
+  /* background-color: aqua; */
+}
+
+.requests_title{
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #C57F78; 
+}
+
+.requests_lists {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 15px;
+  position: static;
+  padding: 10px  calc(100% / 8) 0 0;
+  letter-spacing: 1px;
+  width: 100%;
+  color: #FFFFFF;
+  /* background-color: aqua; */
+}

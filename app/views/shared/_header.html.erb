@@ -10,8 +10,16 @@
   <div class="nav">
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to "#", "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %></li>
+        <% if current_user.affiliation_id == 2 %>
+          <li><%= link_to '在庫一覧', inventory_path, class: 'inventory-link' %></li>
+        <% elsif ![1, 2].include?(current_user.affiliation_id) %>
+          <li><%= link_to '依頼する', '#', class: 'request-link' %></li>
+        <% end %>
+        <%= link_to "#" do %>
+          <div class="avatar_container">
+            <%= image_tag("user.png", alt: "User Avatar", class: "user_avatar") %>
+          </div>
+        <% end %>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>

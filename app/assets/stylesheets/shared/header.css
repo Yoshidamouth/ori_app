@@ -20,18 +20,23 @@
 .header a {
   text-decoration: none;
   color: #FFFFFF;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
   font-size: 36px;
   font-weight: 600;
   line-height: 100px; 
+  font-family: "Elsie", serif;
+  letter-spacing: 2px;
 }
 
 .nav {
-  height: 100px;
+  height: 83px;
   display: flex;
   align-items: center;
+  /* background-color: blue; */
 }
 
 .lists-right {
@@ -66,4 +71,25 @@
 .sign-up {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+.avatar_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  margin-left: 70px;
+}
+
+.user_avatar{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

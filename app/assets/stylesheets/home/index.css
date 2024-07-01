@@ -10,6 +10,7 @@ img {
 
 .top_main_top {
   position: relative;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .top_text_main {
@@ -28,6 +29,8 @@ img {
 .top_text_top {
   font-size: 75px;
   font-weight: 600;
+  font-family: "Elsie", serif;
+  letter-spacing: 2px;
 }
 
 .top_text_bottom {
@@ -86,7 +89,7 @@ img {
   height: 610px;
   width: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .top_f_right_contents{
@@ -113,11 +116,12 @@ img {
 
 .top_f_right_content_number{
   color: #ffffff;
-  font-size: 15px;
+  font-size: 19px;
+  font-family: "Elsie", serif;
 }
 
 .top_f_right_content_main{
-  margin-top: 8px;
+  margin-top: 7px;
   font-size: 25px;
   font-weight: bold;
   letter-spacing: 4px;
