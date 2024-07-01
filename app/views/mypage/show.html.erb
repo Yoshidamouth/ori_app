@@ -1,1 +1,23 @@
 <%= render "shared/header" %>
+
+<div class="mypage_main">
+  <div class="mypage_log">My Page</div>
+  <div class="mypage_contents">
+    <div class="mypage_content">
+      <%= image_tag("user2.png", alt: "User Avatar", class: "icon") %>
+      <div class="mypage_text">ユーザー情報</div>
+    </div>
+
+    <div class="mypage_content">
+      <%= image_tag("box.png", alt: "User Avatar", class: "icon") %>
+      <div class="mypage_text">依頼履歴</div>
+    </div>
+
+    <div class="mypage_content">
+      <%= image_tag("logout.png", alt: "User Avatar", class: "icon") %>
+      <div class="mypage_text">ログアウト</div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

@@ -36,6 +36,7 @@
   height: 83px;
   display: flex;
   align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
   /* background-color: blue; */
 }
 
