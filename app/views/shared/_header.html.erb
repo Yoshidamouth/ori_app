@@ -1,7 +1,11 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class="header">
   <div class="heading">
-    <h1 class="logo"><%= link_to 'ORI APP', root_path %></h1>
+    <% if user_signed_in? %>
+      <h1 class="logo"><%= link_to 'ORI APP', authenticated_root_path %></h1>
+    <% else %>
+      <h1 class="logo"><%= link_to 'ORI APP', unauthenticated_root_path %></h1>
+    <% end %>
   </div>
   <div class="nav">
     <ul class='lists-right'>
