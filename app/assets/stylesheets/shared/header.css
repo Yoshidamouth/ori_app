@@ -36,6 +36,7 @@
   display: flex;
   align-items: center;
   font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 1px;
   /* background-color: blue; */
 }
 
@@ -45,16 +46,8 @@
   margin-left: 70px;
   font-size: 22px;
   font-weight: 600;
-  /* line-height: 100px;   */
+  line-height: 100px;  
 }
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-
 
 .logout {
   text-decoration: none;
