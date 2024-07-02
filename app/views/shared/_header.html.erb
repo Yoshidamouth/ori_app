@@ -13,10 +13,12 @@
         <% if current_user.affiliation_id == 2 %>
           <li><%= link_to '在庫一覧', inventory_path, class: 'inventory-link' %></li>
         <% elsif ![1, 2].include?(current_user.affiliation_id) %>
+          <%= link_to new_request_path do %>
             <div class="header_icon_container">
               <%= image_tag("irai.png", alt: "Irai Avatar", class: "header_icon") %>
               <div class="icon_text">依頼する</div>
             </div>
+          <% end %>
         <% end %>
         <% unless current_page?(mypage_path) %>
           <%= link_to mypage_path do %>
