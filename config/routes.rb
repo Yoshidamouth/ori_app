@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: :index
-  resources :requests, only: [:index, :new]
+  resources :requests, only: [:index, :new, :create]
   get 'mypage', to: 'mypage#show', as: 'mypage'
 
 end

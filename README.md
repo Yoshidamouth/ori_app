@@ -31,7 +31,7 @@
 | ------------------ | ---------- | ----------- |
 | article_id         | references | null: false, foreign_key: true |
 | quantity           | integer    | null: false |
-| status             | integer    | null: false |
+| status             | integer    |             |
 | user_id            | references | null: false, foreign_key: true |
 | request_time       | datetime   | null: false |
 | response_user_id   | integer    | foreign_key: true |

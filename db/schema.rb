@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_02_133040) do
   create_table "requests", charset: "utf8", force: :cascade do |t|
     t.bigint "article_id", null: false
     t.integer "quantity", null: false
-    t.integer "status", null: false
+    t.integer "status"
     t.bigint "user_id", null: false
     t.datetime "request_time", null: false
     t.integer "response_user_id"
