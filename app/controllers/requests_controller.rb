@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   def index
-    
+    @requests =  Request.all
   end
 
   def new
@@ -14,6 +14,10 @@ class RequestsController < ApplicationController
     else
       render "requests/new", status: :unprocessable_entity
     end
+  end
+
+  def show
+
   end
 
   def request_params

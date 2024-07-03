@@ -15,6 +15,26 @@
   </div>
 
   <div class="requests_bottom">
+    <ul class='request_input_lists'>
+
+      <% @requests.each do |request| %>
+        <li class='list'>
+          <%= link_to request_path(request.id) do %> 
+            <div class="requests_input_contents">
+              <ul class='requests_input_contents_lists'>
+                <li class="input_contents_list"><%= l request.request_time %></li>
+                <li class="input_contents_list">支店／依頼者</li>
+                <li class="input_contents_list"><%= request.article.name %></li>
+                <li class="input_contents_list"><%= request.quantity %></li>
+                <li class="input_contents_list"><%= request.status %></li>
+                <li class="input_contents_list"><%= request.response_user&.name %></li>
+              </ul>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+
+    </ul>
   </div>
 
 </div>
