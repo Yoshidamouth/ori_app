@@ -67,8 +67,90 @@
   background-color: #ffffff;
 }
 
+.request_list_request_time{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
+.request_list_affiliation{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 60px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
+.request_list_article{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
+.request_list_quantity{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 60px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
+.request_list_response_user{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
+.request_list_status{
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #C57F78;
+  background-color: aqua;
+}
+
 .request_input_list{
   list-style: none;
+  display: inline-block;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 100px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;

@@ -18,12 +18,12 @@
     <% @requests.each do |request| %>
       <%= link_to request_path(request.id) do %> 
         <ul class='request_input_lists'>
-          <li class="request_input_list"><%= l request.request_time %></li>
-          <li class="request_input_list"><%= request.user.affiliation.name %></li>
-          <li class="request_input_list"><%= request.article.name %></li>
-          <li class="request_input_list"><%= request.quantity %></li>
-          <li class="request_input_list"><%= request.status %></li>
-          <li class="request_input_list"><%= request.response_user&.name %></li>
+          <li class="request_list_request_time"><%= l request.request_time %></li>
+          <li class="request_list_affiliation"><%= request.user.affiliation.name %></li>
+          <li class="request_list_article"><%= request.article.name %></li>
+          <li class="request_list_quantity"><%= request.quantity %></li>
+          <li class="request_list_status"><%= request.status %></li>
+          <li class="request_list_response_user"><%= request.response_user&.name || '' %></li>
         </ul>
       <% end %>
     <% end %>

@@ -4,7 +4,8 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| name               | string     | null: false |
+| lastname           | string     | null: false |
+| firstname          | string     | null: false |
 | email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false |
 | affiliation_id     | integer    | null: false, foreign_key: true |

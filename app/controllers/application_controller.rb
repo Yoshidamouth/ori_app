@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :affiliation_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:lastname, :firstname, :affiliation_id])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :affiliation_id])
   end
 end
