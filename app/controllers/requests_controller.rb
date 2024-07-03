@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:article_id, :quantity).merge(user_id: current_user.id, request_time: Time.now, response_user_id: nil, response_time: nil)
+    params.require(:request).permit(:article_id, :quantity).merge(user_id: current_user.id, request_time: Time.now, status: "未対応", response_user_id: nil, response_time: nil)
   end
 
 end

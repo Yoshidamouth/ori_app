@@ -13,12 +13,12 @@
       <div class="mypage_text">依頼履歴</div>
     </div>
 
-    <div class="mypage_content">
-      <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+      <div class="mypage_content">
         <%= image_tag("logout.png", alt: "User Avatar", class: "logout_icon") %>
         <div class="mypage_text">ログアウト</div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
 
-  validates :article_id, :quantity, :user_id, :request_time, presence: true
+  validates :article_id, :quantity, :status, :user_id, :request_time, presence: true
   validates :quantity, format: { with: /\A\d+\z/, message: "は半角数字で入力してください" },numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
 
   has_many :comments

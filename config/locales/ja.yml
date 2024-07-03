@@ -2,3 +2,15 @@ ja:
   time:
     formats:
       default: "%Y年 %-m月 %-d日 %H:%M"
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            quantity:
+              blank: "を入力してください"
+              not_a_number: "は数字で入力してください"
+            status:
+              blank: "を入力してください"
+  errors:
+    format: "%{attribute} %{message}"
