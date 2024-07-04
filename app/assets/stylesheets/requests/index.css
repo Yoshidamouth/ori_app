@@ -31,7 +31,7 @@
 .requests_lists{
   display: flex;
   justify-content: space-between;
-  margin: 25px 0 10px;
+  margin: 25px 0 20px;
   color: #FFFFFF;
 }
 
@@ -51,6 +51,8 @@
 .request_input_lists{
   height: 60px;
   width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

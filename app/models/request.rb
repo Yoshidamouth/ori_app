@@ -8,4 +8,15 @@ class Request < ApplicationRecord
   belongs_to :article
   belongs_to :response_user, class_name: 'User', optional: true
 
+  validate :custom_article_validation
+
+  private
+
+  def custom_article_validation
+    if article_id.blank?
+      errors.add(:article_id, "を選択してください")
+    elsif errors[:article_id].empty? && article_id == 'some_invalid_value'
+      errors.add(:article_id, "は必須です")
+    end
+  end
 end
