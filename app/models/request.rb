@@ -13,6 +13,7 @@ class Request < ApplicationRecord
   private
 
   def custom_article_validation
+    errors.delete(:article_id)
     if article_id.blank?
       errors.add(:article_id, "を選択してください")
     end
