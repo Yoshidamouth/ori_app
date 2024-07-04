@@ -10,15 +10,26 @@
   <div class="nav">
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <% if current_user.affiliation_id == 2 %>
+
+        <% if current_user.affiliation_id == 2 && controller_name == 'requests' && action_name == 'index' %>
           <%= link_to stocks_path do %>
             <div class="header_icon_container">
               <%= image_tag("boxes.png", alt: "Close", class: "header_icon") %>
               <div class="icon_text">在庫一覧</div>
             </div>
           <% end %>
-        <% elsif ![1, 2].include?(current_user.affiliation_id) %>
+        <% end %>
 
+        <% if current_user.affiliation_id == 2 && controller_name == 'stocks' && action_name == 'index' %>
+          <%= link_to '#' do %>
+            <div class="header_icon_container">
+              <%= image_tag("puls.png", alt: "Irai Avatar", class: "header_icon") %>
+              <div class="icon_text">追加する</div>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if ![1, 2].include?(current_user.affiliation_id) %>
           <% if controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
             <%= link_to authenticated_root_path do %>
               <%= image_tag("close.png", alt: "Close", class: "close_icon") %>
@@ -41,6 +52,7 @@
             </div>
           <% end %>
         <% end %>
+
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
