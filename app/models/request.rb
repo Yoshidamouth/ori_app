@@ -1,7 +1,7 @@
 class Request < ApplicationRecord
-
   validates :article_id, :quantity, :status, :user_id, :request_time, presence: true
-  validates :quantity, format: { with: /\A\d+\z/, message: "は半角数字で入力してください" },numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
+  validates :quantity, format: { with: /\A\d+\z/, message: "は半角数字で入力してください" },
+                       numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
 
   has_many :comments
   belongs_to :user
@@ -15,8 +15,6 @@ class Request < ApplicationRecord
   def custom_article_validation
     if article_id.blank?
       errors.add(:article_id, "を選択してください")
-    elsif errors[:article_id].empty? && article_id == 'some_invalid_value'
-      errors.add(:article_id, "は必須です")
     end
   end
 end
