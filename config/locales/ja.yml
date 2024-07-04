@@ -9,7 +9,7 @@ ja:
           attributes:
             article_id:
               blank: "を選択してください"
-              required: "は必須です"
+              request: "は必須です"
             quantity:
               blank: "を入力してください"
               not_a_number: "は数字で入力してください"
