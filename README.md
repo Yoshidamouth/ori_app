@@ -4,7 +4,8 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| name               | string     | null: false |
+| lastname           | string     | null: false |
+| firstname          | string     | null: false |
 | email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false |
 | affiliation_id     | integer    | null: false, foreign_key: true |
@@ -31,7 +32,7 @@
 | ------------------ | ---------- | ----------- |
 | article_id         | references | null: false, foreign_key: true |
 | quantity           | integer    | null: false |
-| status             | integer    | null: false |
+| status             | string     | null: false |
 | user_id            | references | null: false, foreign_key: true |
 | request_time       | datetime   | null: false |
 | response_user_id   | integer    | foreign_key: true |

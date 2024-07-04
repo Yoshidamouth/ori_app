@@ -7,7 +7,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :affiliation
 
-  validates :name, presence: true
+  validates :lastname, presence: true
+  validates :firstname, presence: true
   validates :affiliation_id, presence: true, numericality: { other_than: 1 ,message: "can't be blank"} 
 
   # belongs_to :affiliation

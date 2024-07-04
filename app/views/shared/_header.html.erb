@@ -2,23 +2,38 @@
 <header class="header">
   <div class="heading">
     <% if user_signed_in? %>
-      <h1 class="logo"><%= link_to 'ORI APP', authenticated_root_path %></h1>
+      <h1 class="logo"><%= link_to 'Sync', authenticated_root_path %></h1>
     <% else %>
-      <h1 class="logo"><%= link_to 'ORI APP', unauthenticated_root_path %></h1>
+      <h1 class="logo"><%= link_to 'Sync', unauthenticated_root_path %></h1>
     <% end %>
   </div>
   <div class="nav">
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <% if current_user.affiliation_id == 2 %>
-          <li><%= link_to '在庫一覧', inventory_path, class: 'inventory-link' %></li>
-        <% elsif ![1, 2].include?(current_user.affiliation_id) %>
+          <%= link_to "#" do %>
             <div class="header_icon_container">
-              <%= image_tag("irai.png", alt: "Irai Avatar", class: "header_icon") %>
-              <div class="icon_text">依頼する</div>
+              <%= image_tag("boxes.png", alt: "Close", class: "header_icon") %>
+              <div class="icon_text">在庫一覧</div>
             </div>
+          <% end %>
+        <% elsif ![1, 2].include?(current_user.affiliation_id) %>
+
+          <% if controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
+            <%= link_to authenticated_root_path do %>
+              <%= image_tag("close.png", alt: "Close", class: "close_icon") %>
+            <% end %>
+          <% else %>
+            <%= link_to new_request_path do %>
+              <div class="header_icon_container">
+                <%= image_tag("irai.png", alt: "Irai Avatar", class: "header_icon") %>
+                <div class="icon_text">依頼する</div>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
-        <% unless current_page?(mypage_path) %>
+
+        <% unless controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
           <%= link_to mypage_path do %>
             <div class="header_icon_container">
               <%= image_tag("user.png", alt: "User Avatar", class: "header_icon") %>

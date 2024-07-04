@@ -23,10 +23,10 @@
 }
 
 .logo {
-  font-size: 36px;
+  font-size: 35px;
   font-weight: 600;
   font-family: "Elsie", serif;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 .nav {
@@ -90,4 +90,9 @@
   letter-spacing: 1px;
   color: #FFFFFF;
   text-align: center;
+}
+
+.close_icon{
+  height: 45px;
+  width: 45px;
 }
