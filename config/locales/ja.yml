@@ -21,5 +21,6 @@ ja:
               blank: "を入力してください"
             firstname:
               blank: "を入力してください"
+
   errors:
     format: "%{attribute} %{message}"
