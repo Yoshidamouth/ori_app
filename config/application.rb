@@ -13,15 +13,12 @@ module OriApp
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
 
-    # CORS設定を追加する
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*' # 信頼できるオリジンに変更する
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head],
-          credentials: false # クレデンシャルを無効化する
-      end
-    end
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
   end
 end
