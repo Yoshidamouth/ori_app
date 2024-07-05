@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+
+<div class="request_main">
+  <div class="request_contents">
+    <div class="request_title">在庫を追加する</div>
+
+    <div class="request_content">
+      <div class="request_inputs">
+        <%= form_for @request, url: requests_path do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+          <div class="request_field">
+            <%= f.label :品名 %><br />
+            <%= f.text_field :quantity, class:"input-default", id:"quantity" %>
+          </div>
+
+          <div class="request_field">
+            <%= f.label :数 %><br />
+            <%= f.text_field :quantity, class:"input-default", id:"quantity" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%= render "shared/footer" %>

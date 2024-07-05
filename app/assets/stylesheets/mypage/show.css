@@ -12,11 +12,13 @@
 
 .mypage_log{
   color: #FFFFFF;
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 600;
   font-family: "Elsie", serif;
   letter-spacing: 2px;
   margin-bottom: 50px;
+  margin-left: 0;
+  text-align: left;
 }
 
 .mypage_contents{

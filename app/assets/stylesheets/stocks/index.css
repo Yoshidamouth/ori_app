@@ -2,7 +2,7 @@
 　見出し
 ********************************************************/
 
-.requests_main{
+.stocks_main{
   position: relative;
   height: 100vh;
   width: 100%;
@@ -11,7 +11,7 @@
   font-family: "Noto Sans JP", sans-serif;
 }
 
-.requests_top{
+.stocks_top{
   width: 100%;
   display: flex;
   position: relative;
@@ -20,17 +20,17 @@
   /* border-bottom: 1px solid #C57F78;  */
 }
 
-.requests_title{
+.stocks_title{
   margin: 0;
   text-align: center;
-  font-size: 55px;
+  font-size: 60px;
   font-weight: 600;
   font-family: "Elsie", serif;
   letter-spacing: 2px;
   color: #FFFFFF;
 }
 
-.requests_lists{
+.stocks_lists{
   display: flex;
   justify-content: space-between;
   margin: 25px 0 20px;
@@ -38,7 +38,7 @@
 }
 
 /******************************************************** 
-　依頼
+　在庫
 ********************************************************/
 
 .requests_bottom{

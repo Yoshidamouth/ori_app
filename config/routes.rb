@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :home, only: :index
   resources :requests, only: [:index, :new, :create, :show]
-  resources :stocks, only: :index
+  resources :stocks, only: [:index, :new, :create, :show]
   get 'mypage', to: 'mypage#show', as: 'mypage'
 
 end

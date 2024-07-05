@@ -21,7 +21,7 @@
         <% end %>
 
         <% if current_user.affiliation_id == 2 && controller_name == 'stocks' && action_name == 'index' %>
-          <%= link_to '#' do %>
+          <%= link_to new_stock_path do %>
             <div class="header_icon_container">
               <%= image_tag("puls.png", alt: "Irai Avatar", class: "header_icon") %>
               <div class="icon_text">追加する</div>
