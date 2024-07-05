@@ -6,22 +6,27 @@
 
     <div class="request_content">
       <div class="request_inputs">
-        <%= form_for @request, url: requests_path do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
+        <%= form_with model: @article_stock, local: true, url: stocks_path do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
+          
           <div class="request_field">
-            <%= f.label :品名 %><br />
-            <%= f.text_field :quantity, class:"input-default", id:"quantity" %>
+            <%= f.label :name, "品名" %><br />
+            <%= f.text_field :name, class: "input-default", id: "name" %>
           </div>
 
           <div class="request_field">
-            <%= f.label :数 %><br />
-            <%= f.text_field :quantity, class:"input-default", id:"quantity" %>
+            <%= f.label :quantity, "在庫数" %><br />
+            <%= f.text_field :quantity, class: "input-default", id: "quantity" %>
+          </div>
+
+          <div class="request_field">
+            <%= f.label :minimum_stock_level, "必要最低数" %><br />
+            <%= f.text_field :minimum_stock_level, class: "input-default", id: "minimum_stock_level" %>
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "追加" %>
           </div>
-
         <% end %>
       </div>
     </div>

@@ -2,20 +2,38 @@ ja:
   time:
     formats:
       default: "%Y年 %-m月 %-d日 %H:%M"
+  activemodel:
+    errors:
+      models:
+        article_stock:
+          attributes:
+            name:
+              blank: "を入力してください"
+            quantity:
+              blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
+            minimum_stock_level:
+              blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
+        user:
+          attributes:
+            lastname:
+              blank: "を入力してください"
+            firstname:
+              blank: "を入力してください"
   activerecord:
     errors:
       models:
-        request:
+        article_stock:
           attributes:
-            article_id:
-              blank: "を選択してください"
-              required: "を選択してください"
+            name:
+              blank: "を入力してください"
             quantity:
               blank: "を入力してください"
-              not_a_number: "は数字で入力してください"
-              not_an_integer: "は半角数字で入力してください"
-            status:
+              not_a_number: "は数値で入力してください"
+            minimum_stock_level:
               blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
         user:
           attributes:
             lastname:
