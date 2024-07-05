@@ -9,54 +9,64 @@
   </div>
   <div class="nav">
     <ul class='lists-right'>
-      <% if user_signed_in? %>
+<% if user_signed_in? %>
 
-        <% if current_user.affiliation_id == 2 && controller_name == 'requests' && action_name == 'index' %>
-          <%= link_to stocks_path do %>
-            <div class="header_icon_container">
-              <%= image_tag("boxes.png", alt: "Close", class: "header_icon") %>
-              <div class="icon_text">在庫一覧</div>
-            </div>
-          <% end %>
+  <% if current_user.affiliation_id == 2 && controller_name == 'requests' && action_name == 'index' %>
+    <%= link_to stocks_path do %>
+      <div class="header_icon_container">
+        <%= image_tag("boxes.png", alt: "Close", class: "header_icon") %>
+        <div class="icon_text">在庫一覧</div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if current_user.affiliation_id == 2 && controller_name == 'stocks' && action_name == 'index' %>
+    <%= link_to new_stock_path do %>
+      <div class="header_icon_container">
+        <%= image_tag("puls.png", alt: "Irai Avatar", class: "header_icon") %>
+        <div class="icon_text">追加する</div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if current_user.affiliation_id == 2 && controller_name == 'stocks' && ['new', 'create'].include?(action_name) %>
+    <%= link_to stocks_path do %>
+      <%= image_tag("close.png", alt: "Close", class: "close_icon") %>
+    <% end %>
+  <% end %>
+
+  <% if current_user.affiliation_id != 2 && controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
+    <%= link_to authenticated_root_path do %>
+      <%= image_tag("close.png", alt: "Close", class: "close_icon") %>
+    <% end %>
+  <% end %>
+
+  <% if current_user.affiliation_id != 2  || !(['requests', 'stocks'].include?(controller_name) && ['new', 'create'].include?(action_name)) %>
+    <% if ![1, 2].include?(current_user.affiliation_id) %>
+      <% unless controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
+        <%= link_to new_request_path do %>
+          <div class="header_icon_container">
+            <%= image_tag("irai.png", alt: "Irai Avatar", class: "header_icon") %>
+            <div class="icon_text">依頼する</div>
+          </div>
         <% end %>
-
-        <% if current_user.affiliation_id == 2 && controller_name == 'stocks' && action_name == 'index' %>
-          <%= link_to new_stock_path do %>
-            <div class="header_icon_container">
-              <%= image_tag("puls.png", alt: "Irai Avatar", class: "header_icon") %>
-              <div class="icon_text">追加する</div>
-            </div>
-          <% end %>
-        <% end %>
-
-        <% if ![1, 2].include?(current_user.affiliation_id) %>
-          <% if controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
-            <%= link_to authenticated_root_path do %>
-              <%= image_tag("close.png", alt: "Close", class: "close_icon") %>
-            <% end %>
-          <% else %>
-            <%= link_to new_request_path do %>
-              <div class="header_icon_container">
-                <%= image_tag("irai.png", alt: "Irai Avatar", class: "header_icon") %>
-                <div class="icon_text">依頼する</div>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <% unless controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
-          <%= link_to mypage_path do %>
-            <div class="header_icon_container">
-              <%= image_tag("user.png", alt: "User Avatar", class: "header_icon") %>
-              <div class="icon_text">マイページ</div>
-            </div>
-          <% end %>
-        <% end %>
-
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
       <% end %>
+    <% end %>
+
+    <% unless controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
+      <%= link_to mypage_path do %>
+        <div class="header_icon_container">
+          <%= image_tag("user.png", alt: "User Avatar", class: "header_icon") %>
+          <div class="icon_text">マイページ</div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+  <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+<% end %>
     </ul>
   </div>
 </header>
