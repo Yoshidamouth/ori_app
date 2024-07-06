@@ -5,25 +5,25 @@
     <div class="request_title">依頼を投稿する</div>
 
     <div class="request_content">
-      <div class="request_inputs">
-        <%= form_for @request, url: requests_path do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
-          <div class="request_field">
-            <%= f.label :品名 %><br />
-            <%= f.select :article_id, options_for_select(Article.all.map { |article| [article.name, article.id] }), {}, { class: "input-default", id: "article_id" } %>
-          </div>
+      <%= form_for @request, url: requests_path do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+        <div class="field">
+          <%= f.label :品名, class: "field-text" %><br />
+          <%= f.select :article_id, options_for_select(Article.all.map { |article| [article.name, article.id] }), {}, { class: "field-input", id: "article_id" } %>
+        </div>
 
-          <div class="request_field">
-            <%= f.label :数 %><br />
-            <%= f.text_field :quantity, class:"input-default", id:"quantity" %>
-          </div>
+        <div class="field">
+          <%= f.label :数, class: "field-text" %><br />
+          <%= f.text_field :quantity, class:"field-input", id:"quantity" %>
+        </div>
 
+        <div class="request_actions">
           <div class="actions">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "投稿する", class: "field-login-text" %>
           </div>
+        </div>
 
-        <% end %>
-      </div>
+      <% end %>
     </div>
 
   </div>

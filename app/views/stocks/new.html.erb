@@ -5,30 +5,31 @@
     <div class="request_title">在庫を追加する</div>
 
     <div class="request_content">
-      <div class="request_inputs">
-        <%= form_with model: @article_stock, local: true, url: stocks_path do |f| %>
-          <%= render 'shared/error_messages', model: f.object %>
-          
-          <div class="request_field">
-            <%= f.label :name, "品名" %><br />
-            <%= f.text_field :name, class: "input-default", id: "name" %>
-          </div>
+      <%= form_with model: @article_stock, local: true, url: stocks_path do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+        
+        <div class="field">
+          <%= f.label :name, "品名", class: "field-text" %><br />
+          <%= f.text_field :name, class: "field-input", id: "name" %>
+        </div>
 
-          <div class="request_field">
-            <%= f.label :quantity, "在庫数" %><br />
-            <%= f.text_field :quantity, class: "input-default", id: "quantity" %>
-          </div>
+        <div class="field">
+          <%= f.label :quantity, "在庫数", class: "field-text" %><br />
+          <%= f.text_field :quantity, class: "field-input", id: "quantity" %>
+        </div>
 
-          <div class="request_field">
-            <%= f.label :minimum_stock_level, "必要最低数" %><br />
-            <%= f.text_field :minimum_stock_level, class: "input-default", id: "minimum_stock_level" %>
-          </div>
+        <div class="field">
+          <%= f.label :minimum_stock_level, "必要最低数", class: "field-text" %><br />
+          <%= f.text_field :minimum_stock_level, class: "field-input", id: "minimum_stock_level" %>
+        </div>
 
+        <div class="request_actions">
           <div class="actions">
-            <%= f.submit "追加" %>
+            <%= f.submit "追加", class: "field-login-text" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+
+      <% end %>
     </div>
 
   </div>

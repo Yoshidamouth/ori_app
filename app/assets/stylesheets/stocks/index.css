@@ -27,14 +27,14 @@
   font-weight: 600;
   font-family: "Elsie", serif;
   letter-spacing: 2px;
-  color: #FFFFFF;
+  color: #2E457C;
 }
 
 .stocks_lists{
   display: flex;
   justify-content: space-between;
   margin: 25px 0 20px;
-  color: #FFFFFF;
+  color: #2E457C;
 }
 
 /******************************************************** 

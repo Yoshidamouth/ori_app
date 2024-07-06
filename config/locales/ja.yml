@@ -1,7 +1,4 @@
 ja:
-  time:
-    formats:
-      default: "%Y年 %-m月 %-d日 %H:%M"
   activemodel:
     errors:
       models:
@@ -11,15 +8,22 @@ ja:
               blank: "を入力してください"
             quantity:
               blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
+              not_a_number: "は半角数字で入力してください"
             minimum_stock_level:
               blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
+              not_a_number: "は半角数字で入力してください"
         user:
           attributes:
             lastname:
               blank: "を入力してください"
             firstname:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              not_saved: "は保存されませんでした"
+            password:
+              blank: "を入力してください"
+            affiliation:
               blank: "を入力してください"
   activerecord:
     errors:
@@ -30,15 +34,24 @@ ja:
               blank: "を入力してください"
             quantity:
               blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
+              not_a_number: "は半角数字で入力してください"
             minimum_stock_level:
               blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
+              not_a_number: "は半角数字で入力してください"
         user:
           attributes:
             lastname:
               blank: "を入力してください"
             firstname:
               blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              not_saved: "は保存されませんでした"
+            password:
+              blank: "を入力してください"
+            affiliation:
+              blank: "を入力してください"
   errors:
+    messages:
+      not_saved: "保存に失敗しました。入力内容を確認してください。"
     format: "%{attribute} %{message}"

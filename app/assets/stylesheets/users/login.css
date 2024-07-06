@@ -1,0 +1,94 @@
+.users_main{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #E8CBC2;
+  padding: 100px 200px 100px 200px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.users_contents{
+}
+
+.users_title{
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  padding-bottom: 17px;
+  color: #2E457C;
+}
+
+.users_contents_botoom{
+  margin-top: 50px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  color: #2E457C
+}
+
+.field-text{
+  width: 250px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #2E457C;
+}
+
+.field-login-text{
+  height: 45px;
+  width: 280px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background-color: #2E457C;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+}
+
+.field-input{
+  margin: 10px 0 50px;
+  height: 80px;
+  width: 530px;
+  border-radius: 10px;
+  background-color: #E8CBC2;
+  border: 1px solid #C57F78;
+}
+
+.field-password-input{
+  margin-bottom: 50px;
+  height: 80px;
+  width: 530px;
+  border-radius: 10px;
+  background-color: #E8CBC2;
+  border: 1px solid #C57F78;
+}
+
+.actions a{
+  color: #2E457C;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-decoration-color: #2E457C;
+}
+
+.actions{
+  margin-bottom: 10px;
+}
+
+.actions label {
+  color: #2E457C;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.login_contents{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

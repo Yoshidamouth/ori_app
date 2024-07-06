@@ -1,44 +1,64 @@
-<h2>Sign up</h2>
+<%= render "shared/header" %>
 
-<%= form_for @user, url: user_registration_path do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="users_main">
+    <div class="users_contents">
+      <div class="users_contents_top">
+        <div class="users_title">アカウントを作成する</div>
+      </div>
 
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, class:"input-default", id:"lastname" %>
+      <div class="users_contents_botoom">
+        <%= form_for @user, url: user_registration_path do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :姓, class: "field-text" %><br />
+            <%= f.text_field :lastname, class:"input-default", id:"lastname", class: "field-input", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :名, class: "field-text" %><br />
+            <%= f.text_field :firstname, class:"input-default", id:"firstname", class: "field-input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :メール, class: "field-text" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :パスワード, class: "field-text" %><br />
+            <% if @minimum_password_length %>
+            <div class="field-text">(<%= @minimum_password_length %> 文字以上必要です)</div>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "field-password-input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"パスワード(確認)", class: "field-text" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :所属, class: "field-text" %><br />
+            <%= f.collection_select(:affiliation_id, Affiliation.all, :id, :name, {}, {class:"field-input", id:"affiliation_id"}) %>
+          </div>
+
+        <div class="login_contents">
+          <div class="actions">
+            <%= f.submit "アカウントを作成する", class: "field-login-text" %>
+          </div>
+          <% end %>
+        </div>
+
+        <% if controller_name != 'sessions' %>
+        <div class="actions">
+          <%= link_to "ログイン", new_session_path(resource_name) %><br />
+        <% end %>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, class:"input-default", id:"firstname" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :affiliation_id %><br />
-    <%= f.collection_select(:affiliation_id, Affiliation.all, :id, :name, {}, {class:"select-box", id:"affiliation_id"}) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= render "shared/footer" %>

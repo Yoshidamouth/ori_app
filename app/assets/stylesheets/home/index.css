@@ -9,6 +9,7 @@ img {
 }
 
 .top_main_top {
+  background-color: #E8CBC2;
   position: relative;
   font-family: "Noto Sans JP", sans-serif;
 }
@@ -124,7 +125,7 @@ img {
   margin-top: 7px;
   font-size: 25px;
   font-weight: bold;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   padding-bottom: 17px;
   color: #2E457C;
 }
