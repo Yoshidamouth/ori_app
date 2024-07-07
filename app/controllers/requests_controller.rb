@@ -17,7 +17,8 @@ class RequestsController < ApplicationController
   end
 
   def show
-
+    @request = Request.find(params[:id])
+    @comment = @request.comments.build
   end
 
   def request_params

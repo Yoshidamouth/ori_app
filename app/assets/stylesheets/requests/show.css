@@ -1,0 +1,109 @@
+/******************************************************** 
+　依頼内容
+********************************************************/
+
+.request_show_main{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #E8CBC2;
+  padding: 0 50px 0;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.request_show_contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.request_bottom{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.request_input_lists{
+  height: 60px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: #2E457C;
+  background-color: #ffffff;
+}
+
+.show_actions a{
+  color: #2E457C;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-decoration-color: #2E457C;
+}
+
+.show_action_left{
+  margin-right: 25px;
+}
+
+.show_action_right{
+  margin-left: 25px;
+}
+
+.field-show-text{
+  height: 45px;
+  width: 280px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background-color: #2E457C;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+}
+
+/******************************************************** 
+　コメント
+********************************************************/
+
+.show_comments{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding: 20px 0 20px 50px;
+  /* border-top: 1px solid #C57F78; */
+  background-color: #C57F78;
+}
+
+.form-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-text{
+  height: 60px;
+  width: 90%;
+  border-radius: 10px;
+  background-color: #E8CBC2;
+  border: 1px solid #C57F78;
+}
+
+.content-input{
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  height: 100%;
+  width: 10%;
+  color: #ffffff;
+  border: none;
+  background-color: #C57F78;
+}

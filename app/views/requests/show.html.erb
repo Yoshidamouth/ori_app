@@ -1,0 +1,48 @@
+<%= render "shared/header" %>
+
+<div class="request_show_main">
+    <div class="requests_top">
+    <div class="requests_title">Request</div>
+    <ul class='requests_lists'>
+      <li class="request_list_request_time">時間</li>
+      <li class="request_list_affiliation">支店 / 依頼者</li>
+      <li class="request_list_article">品名</li>
+      <li class="request_list_quantity">数量</li>
+      <li class="request_list_status">状況</li>
+      <li class="request_list_response_user">対応者</li>
+    </ul>
+  </div>
+
+  <div class="request_bottom">
+    <%= link_to "#" do %> 
+      <ul class='request_input_lists'>
+        <li class="request_list_request_time"><%= l @request.request_time %></li>
+        <li class="request_list_affiliation"><%= "#{@request.user.affiliation.name} / #{@request.user.lastname}" %></li>
+        <li class="request_list_article"><%= @request.article.name %></li>
+        <li class="request_list_quantity"><%= @request.quantity %></li>
+        <li class="request_list_status"><%= @request.status %></li>
+        <li class="request_list_response_user"><%= @request.response_user&.name || '' %></li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="request_show_contents">
+    <%= form_for @request do |f| %>
+      <div class="show_action_left">
+        <%= f.submit "編集する", class: "field-show-text" %>
+      </div>
+    <% end %>
+    <div class="show_action_right">
+      <%= form_for @request, method: :delete, data: {turbo_method: :delete} do |f| %>
+        <%= f.submit "削除する", class: "field-show-text" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="show_comments">
+  <%= form_with(model: [@request, @comment], local: true, html: {class: "form-class"}) do |form| %>
+    <%= form.text_area :content, class: "content-text", placeholder: "コメントする", rows: "2" %>
+    <%= form.submit "送信", class: "content-input" %>
+  <% end %>
+</div>

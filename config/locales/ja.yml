@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      default: "%Y年%m月%d日 %H:%M"  # 日付と時刻のデフォルトフォーマットを追加します
   activemodel:
     errors:
       models:
