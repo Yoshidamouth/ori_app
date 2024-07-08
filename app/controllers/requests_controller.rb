@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    @comments = @request.comments || []
+    @comments = @request.comments.includes(:user).order(:created_at)
     @comment = @request.comments.build
   end
 

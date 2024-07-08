@@ -39,26 +39,32 @@
     </div>
   </div>
 
-  <% if @comments.present? %>
-      <% @comments.each do |comment| %>
-        <div class="show_comments_index">
-          <div class="comment_contents_top">
-            <% if comment.user %>
-              <div class="comment_name"><%= "#{comment.user.affiliation.name} / #{comment.user.lastname}" %></div>
-            <% end %>
-            <% if comment.comment_time %>
-              <div class="comment_time"><%= l comment.comment_time %></div>
-            <% end %>
+  <div class="show_comments_main">
+    <div class="show_comments_title">Comment</div>
+    <% @comments.each do |comment| %>
+      <div class="show_comments_index">
+        <div class="comment_contents_top">
+          <div class="comment_contents_left">
+            <div class="comment_name"><%= "#{comment.user.affiliation.name} / #{comment.user.lastname}" %></div>
+            <div class="comment_time"><%= l comment.comment_time %></div>
           </div>
-          <div class="comment_content"><%= comment.content %></div>
+          <div class="menu_icon_container">
+            <%= image_tag("menu.png", alt: "Menu", class: "menu_icon") %>
+            <div class="menu_dropdown">
+              <%= link_to "削除", request_comment_path(@request, comment), method: :delete, data: { turbo_method: :delete } %>
+            </div>
+          </div>
         </div>
-      <% end %>
-  <% end %>
+        <div class="comment_content"><%= comment.content %></div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
 
 <div class="show_comments">
   <%= form_with(model: [@request, @comment], local: true, html: {class: "form-class"}) do |form| %>
-    <%= form.text_area :content, class: "content-text", placeholder: "コメントする", rows: "2" %>
+    <%= form.text_area :content, required: true, class: "content-text", placeholder: "コメントする", rows: "2" %>
     <%= form.submit "送信", class: "content-input" %>
   <% end %>
 </div>

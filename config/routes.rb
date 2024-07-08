@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: :index
-  resources :requests, only: [:index, :new, :create, :show] do
-    resources :comments, only: [:create]
+  resources :requests, only: [:index, :new, :create, :show, :destroy] do
+    resources :comments, only: [:create, :destroy]
   end
   resources :stocks, only: [:index, :new, :create, :show]
   get 'mypage', to: 'mypage#show', as: 'mypage'
