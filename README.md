@@ -52,6 +52,7 @@
 | content            | text       | null: false |
 | user_id            | references | null: false, foreign_key: true |
 | request_id         | references | null: false, foreign_key: true |
+| comment_time       | datetime   | null: false |
 
 ### Association
 

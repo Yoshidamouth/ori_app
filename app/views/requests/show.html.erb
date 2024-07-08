@@ -15,7 +15,7 @@
 
   <div class="request_bottom">
     <%= link_to "#" do %> 
-      <ul class='request_input_lists'>
+      <ul class='request_show_lists'>
         <li class="request_list_request_time"><%= l @request.request_time %></li>
         <li class="request_list_affiliation"><%= "#{@request.user.affiliation.name} / #{@request.user.lastname}" %></li>
         <li class="request_list_article"><%= @request.article.name %></li>
@@ -38,6 +38,22 @@
       <% end %>
     </div>
   </div>
+
+  <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <div class="show_comments_index">
+          <div class="comment_contents_top">
+            <% if comment.user %>
+              <div class="comment_name"><%= "#{comment.user.affiliation.name} / #{comment.user.lastname}" %></div>
+            <% end %>
+            <% if comment.comment_time %>
+              <div class="comment_time"><%= l comment.comment_time %></div>
+            <% end %>
+          </div>
+          <div class="comment_content"><%= comment.content %></div>
+        </div>
+      <% end %>
+  <% end %>
 </div>
 
 <div class="show_comments">

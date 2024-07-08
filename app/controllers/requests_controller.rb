@@ -18,6 +18,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    @comments = @request.comments || []
     @comment = @request.comments.build
   end
 
