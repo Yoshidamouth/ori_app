@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 50px 0 100px;
+  margin: 50px 0;
 }
 
 .request_bottom{
@@ -59,11 +59,46 @@
   margin-left: 25px;
 }
 
-.show_action_status{
-
+.field-show-complete{
+  height: 45px;
+  width: 280px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  background-color: #ddbd73;
+  color: #ffffff;
+  border: none;
 }
 
 .field-show-text{
+  height: 45px;
+  width: 280px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background-color: #2E457C;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+}
+
+.show_action_complete{
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #C57F78;
+}
+
+.show_action_completes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-show-completes{
+  margin-top: 30px;
   height: 45px;
   width: 280px;
   font-size: 17px;

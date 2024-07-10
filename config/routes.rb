@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :requests, only: [:index, :new, :create, :show, :destroy] do
     resources :comments, only: [:create, :destroy]
+    
+    member do
+      patch :update_status
+      patch :complete_status
+    end
   end
   resources :stocks, only: [:index, :new, :create, :show]
   get 'mypage', to: 'mypage#show', as: 'mypage'

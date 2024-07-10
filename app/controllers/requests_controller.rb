@@ -28,6 +28,24 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
+  def update_status
+    @request = Request.find(params[:id])
+    if @request.update(status: '対応中', response_user_id: current_user.id)
+      redirect_to @request
+    else
+      redirect_to @request, status: :unprocessable_entity
+    end
+  end
+
+  def complete_status
+    @request = Request.find(params[:id])
+    if @request.update(status: '対応済', response_time: Time.current)
+      redirect_to @request
+    else
+      redirect_to @request, status: :unprocessable_entity
+    end
+  end
+
   def request_params
     params.require(:request).permit(:article_id, :quantity).merge(user_id: current_user.id, request_time: Time.now, status: "未対応", response_user_id: nil, response_time: nil)
   end
