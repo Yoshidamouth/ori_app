@@ -21,7 +21,7 @@
           <li class="request_list_request_time"><%= l request.request_time %></li>
           <li class="request_list_affiliation"><%= "#{request.user.affiliation.name} / #{request.user.lastname}" %></li>
           <li class="request_list_article"><%= request.article.name %></li>
-          <li class="request_list_quantity_s"><%= request.quantity %></li>
+          <li class="request_list_quantity"><%= request.quantity %></li>
           <li class="request_list_status"><%= request.status %></li>
           <li class="request_list_response_user"><%= request.response_user&.lastname || '' %></li>
         </ul>

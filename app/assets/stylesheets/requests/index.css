@@ -107,7 +107,7 @@
   letter-spacing: 2px;
 }
 
-.request_list_quantity_s{
+/* .request_list_quantity_s{
   list-style: none;
   display: inline-block;
   text-align: left;
@@ -117,7 +117,7 @@
   font-weight: 600;
   letter-spacing: 2px;
   padding-left: 12px;
-}
+} */
 
 .request_list_status{
   list-style: none;
