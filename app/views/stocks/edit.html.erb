@@ -2,15 +2,17 @@
 
 <div class="request_main">
   <div class="request_contents">
-    <div class="request_title">新しい在庫を追加する</div>
+    <div class="request_title">在庫情報を編集する</div>
 
     <div class="request_content">
-      <%= form_with model: @article_stock, local: true, url: stocks_path do |f| %>
-      <%= render 'shared/error_messages', model: f.object %>
-        
+      <%= form_with model: @stock, local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+
         <div class="field">
           <%= f.label :name, "品名", class: "field-text" %><br />
-          <%= f.text_field :name, class: "field-input", id: "name", autofocus: true %>
+          <%= f.fields_for :article do |a| %>
+            <%= a.text_field :name, value: @stock.article.name, class: "field-input", id: "name" %>
+          <% end %>
         </div>
 
         <div class="field">
@@ -25,13 +27,11 @@
 
         <div class="request_actions">
           <div class="actions">
-            <%= f.submit "追加", class: "field-login-text" %>
+            <%= f.submit "編集する", class: "field-login-text" %>
           </div>
         </div>
-
       <% end %>
     </div>
-
   </div>
 </div>
 

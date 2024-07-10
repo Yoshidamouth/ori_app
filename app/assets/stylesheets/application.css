@@ -21,3 +21,47 @@
 * body {
   padding-top: 83px; /* Headerの高さに合わせて調整 */
 }
+
+.notice {
+  color: green;
+  background-color: #e7f5e7;
+  border: 1px solid green;
+  padding: 10px;
+}
+
+.alert {
+  color: red;
+  background-color: #f8d7da;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.status-unresponded {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: #e3e3e4;
+}
+
+.status-responding {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: #ddbd73;
+}
+
+.status-completed {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: #a6e5d4;
+}

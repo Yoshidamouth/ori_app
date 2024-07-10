@@ -17,12 +17,26 @@ class StocksController < ApplicationController
     end
   end
 
-  def show
+  def edit
+    @stock = Stock.includes(:article).find(params[:id])
+  end
 
+  def update
+    @stock = Stock.includes(:article).find(params[:id])
+  
+    if @stock.update(stock_params)
+      if !@stock.changed?
+        redirect_to stocks_path
+      else
+        redirect_to stocks_path, notice: '在庫が更新されました。'
+      end
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def stock_params
-    params.require(:article_stock).permit(:name, :quantity, :minimum_stock_level)
+    params.require(:stock).permit(:quantity, :minimum_stock_level, article_attributes: [:name])
   end
 
 end

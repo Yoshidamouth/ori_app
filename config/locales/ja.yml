@@ -1,7 +1,8 @@
 ja:
   time:
     formats:
-      default: "%Y年%m月%d日 %H:%M"  # 日付と時刻のデフォルトフォーマットを追加します
+      default: "%Y年%m月%d日 %H:%M" 
+
   activemodel:
     errors:
       models:
@@ -15,19 +16,19 @@ ja:
             minimum_stock_level:
               blank: "を入力してください"
               not_a_number: "は半角数字で入力してください"
-        user:
+        stock:
           attributes:
-            lastname:
+            quantity:
               blank: "を入力してください"
-            firstname:
+              not_a_number: "は半角数字で入力してください"
+            minimum_stock_level:
               blank: "を入力してください"
-            email:
+              not_a_number: "は半角数字で入力してください"
+        article:
+          attributes:
+            name:
               blank: "を入力してください"
-              not_saved: "は保存されませんでした"
-            password:
-              blank: "を入力してください"
-            affiliation:
-              blank: "を入力してください"
+
   activerecord:
     errors:
       models:
@@ -41,20 +42,28 @@ ja:
             minimum_stock_level:
               blank: "を入力してください"
               not_a_number: "は半角数字で入力してください"
-        user:
+        stock:
           attributes:
-            lastname:
+            quantity:
               blank: "を入力してください"
-            firstname:
+              not_a_number: "は半角数字で入力してください"
+            minimum_stock_level:
               blank: "を入力してください"
-            email:
+              not_a_number: "は半角数字で入力してください"
+        article:
+          attributes:
+            name:
               blank: "を入力してください"
-              not_saved: "は保存されませんでした"
-            password:
-              blank: "を入力してください"
-            affiliation:
-              blank: "を入力してください"
+
   errors:
     messages:
       not_saved: "保存に失敗しました。入力内容を確認してください。"
     format: "%{attribute} %{message}"
+
+  devise:
+    sessions:
+      user:
+        signed_out: "ログアウトしました"
+        signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+      signed_in: "ログインしました"
