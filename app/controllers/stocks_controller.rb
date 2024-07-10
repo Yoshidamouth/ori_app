@@ -25,7 +25,7 @@ class StocksController < ApplicationController
     @stock = Stock.includes(:article).find(params[:id])
   
     if @stock.update(stock_params)
-      if !@stock.changed?
+      if @stock.previous_changes.empty?
         redirect_to stocks_path
       else
         redirect_to stocks_path, notice: '在庫が更新されました。'
@@ -36,7 +36,7 @@ class StocksController < ApplicationController
   end
 
   def stock_params
-    params.require(:stock).permit(:quantity, :minimum_stock_level, article_attributes: [:name])
+    params.require(:stock).permit(:quantity, :minimum_stock_level, article_attributes: [:name, :id])
   end
 
 end
