@@ -4,15 +4,16 @@ class StocksController < ApplicationController
   end
 
   def new
-    @stock =  Stock.new
+    @article_stock =  ArticleStock.new
   end
 
   def create
-    @stock = Stock.new(stock_params)
-    if @stock.save
-      new_stock_path
+    @article_stock = ArticleStock.new(stock_params)
+    if @article_stock.valid?
+      @article_stock.save
+      redirect_to stocks_path, notice: '在庫が追加されました。'
     else
-      render "stocks/new", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -21,7 +22,7 @@ class StocksController < ApplicationController
   end
 
   def stock_params
-    params.require(:stock).permit(:article_id, :quantity, :minimum_stock_level)
+    params.require(:article_stock).permit(:name, :quantity, :minimum_stock_level)
   end
 
 end

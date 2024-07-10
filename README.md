@@ -50,8 +50,9 @@
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
 | content            | text       | null: false |
-| user_id            | integer    | null: false, foreign_key: true |
-| request_id         | integer    | null: false, foreign_key: true |
+| user_id            | references | null: false, foreign_key: true |
+| request_id         | references | null: false, foreign_key: true |
+| comment_time       | datetime   | null: false |
 
 ### Association
 

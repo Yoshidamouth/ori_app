@@ -1,26 +1,60 @@
 ja:
   time:
     formats:
-      default: "%Y年 %-m月 %-d日 %H:%M"
-  activerecord:
+      default: "%Y年%m月%d日 %H:%M"  # 日付と時刻のデフォルトフォーマットを追加します
+  activemodel:
     errors:
       models:
-        request:
+        article_stock:
           attributes:
-            article_id:
-              blank: "を選択してください"
-              required: "を選択してください"
+            name:
+              blank: "を入力してください"
             quantity:
               blank: "を入力してください"
-              not_a_number: "は数字で入力してください"
-              not_an_integer: "は半角数字で入力してください"
-            status:
+              not_a_number: "は半角数字で入力してください"
+            minimum_stock_level:
               blank: "を入力してください"
+              not_a_number: "は半角数字で入力してください"
         user:
           attributes:
             lastname:
               blank: "を入力してください"
             firstname:
               blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              not_saved: "は保存されませんでした"
+            password:
+              blank: "を入力してください"
+            affiliation:
+              blank: "を入力してください"
+  activerecord:
+    errors:
+      models:
+        article_stock:
+          attributes:
+            name:
+              blank: "を入力してください"
+            quantity:
+              blank: "を入力してください"
+              not_a_number: "は半角数字で入力してください"
+            minimum_stock_level:
+              blank: "を入力してください"
+              not_a_number: "は半角数字で入力してください"
+        user:
+          attributes:
+            lastname:
+              blank: "を入力してください"
+            firstname:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              not_saved: "は保存されませんでした"
+            password:
+              blank: "を入力してください"
+            affiliation:
+              blank: "を入力してください"
   errors:
+    messages:
+      not_saved: "保存に失敗しました。入力内容を確認してください。"
     format: "%{attribute} %{message}"

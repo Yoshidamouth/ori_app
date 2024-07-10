@@ -13,6 +13,17 @@
     </ul>
   </div>
 
+  <div class="requests_bottom">
+    <% @stocks.each do |stock| %>
+      <%= link_to stock_path(stock.id) do %> 
+        <ul class='request_input_lists'>
+          <li class="request_list_article"><%= stock.article.name %></li>
+          <li class="request_list_quantity"><%= stock.quantity %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
 
 <%= render "shared/footer" %>

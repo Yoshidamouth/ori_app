@@ -1,8 +1,44 @@
 .request_main{
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #E8CBC2;
-  padding: 0 50px 50px;
+  padding: 100px 200px 100px 200px;
   font-family: "Noto Sans JP", sans-serif;
+}
+
+.request_title{
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  padding-bottom: 17px;
+  color: #2E457C;
+}
+
+.request_content{
+  margin-top: 50px;
+  height: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  color: #2E457C
+}
+
+.request_actions{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock_field{
+  margin-top: 50px;
+}
+
+.new_request{
+  display: contents;
 }

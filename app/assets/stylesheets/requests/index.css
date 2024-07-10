@@ -17,24 +17,24 @@
   position: relative;
   flex-direction: column;
   padding-top: 30px;
-  /* border-bottom: 1px solid #C57F78;  */
 }
 
 .requests_title{
   margin: 0;
+  margin-bottom: 30px;
   text-align: center;
   font-size: 55px;
   font-weight: 600;
   font-family: "Elsie", serif;
   letter-spacing: 2px;
-  color: #FFFFFF;
+  color: #2E457C;
 }
 
 .requests_lists{
   display: flex;
   justify-content: space-between;
   margin: 25px 0 20px;
-  color: #FFFFFF;
+  color: #2E457C;
 }
 
 /******************************************************** 
@@ -68,11 +68,10 @@
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 250px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }
 
 .request_list_affiliation{
@@ -80,11 +79,10 @@
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 250px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }
 
 .request_list_article{
@@ -92,11 +90,10 @@
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 250px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }
 
 .request_list_quantity{
@@ -104,23 +101,22 @@
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 60px;
+  width: 100px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }
 
-.request_list_response_user{
+.request_list_quantity_s{
   list-style: none;
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 100px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
+  padding-left: 12px;
 }
 
 .request_list_status{
@@ -132,17 +128,15 @@
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }
 
-.request_input_list{
+.request_list_response_user{
   list-style: none;
   display: inline-block;
   text-align: left;
   text-overflow: ellipsis;
-  width: 100px;
+  width: 150px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
-  background-color: aqua;
 }

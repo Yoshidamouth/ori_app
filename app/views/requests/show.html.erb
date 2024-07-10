@@ -1,0 +1,108 @@
+<%= render "shared/header" %>
+
+<div class="request_show_main">
+    <div class="requests_top">
+    <div class="requests_title">Request</div>
+    <ul class='requests_lists'>
+      <li class="request_list_request_time">時間</li>
+      <li class="request_list_affiliation">支店 / 依頼者</li>
+      <li class="request_list_article">品名</li>
+      <li class="request_list_quantity">数量</li>
+      <li class="request_list_status">状況</li>
+      <li class="request_list_response_user">対応者</li>
+    </ul>
+  </div>
+
+  <div class="request_bottom">
+    <%= link_to "#" do %> 
+      <ul class='request_show_lists'>
+        <li class="request_list_request_time"><%= l @request.request_time %></li>
+        <li class="request_list_affiliation"><%= "#{@request.user.affiliation.name} / #{@request.user.lastname}" %></li>
+        <li class="request_list_article"><%= @request.article.name %></li>
+        <li class="request_list_quantity"><%= @request.quantity %></li>
+        <li class="request_list_status"><%= @request.status %></li>
+        <li class="request_list_response_user"><%= @request.response_user&.lastname || '' %></li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="request_show_contents">
+    <% if @request.user == current_user && @request.status == '未対応' %>
+      <%= form_for @request do |f| %>
+        <div class="show_action_left">
+          <%= f.submit "編集する", class: "field-show-text" %>
+        </div>
+      <% end %>
+      <div class="show_action_right">
+        <%= form_for @request, url: request_path(@request), method: :delete, data: { turbo_method: :delete } do |f| %>
+          <%= f.submit "削除する", class: "field-show-text" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if current_user.affiliation_id == 2 && @request.status == '未対応' %>
+      <div class="show_action_status">
+        <%= form_for @request, url: update_status_request_path(@request), method: :patch do |f| %>
+          <%= f.submit "対応する", class: "field-show-text" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if current_user.affiliation_id == 2 && @request.status == '対応中' && @request.response_user_id == current_user.id %>
+      <div class="show_action_status">
+        <%= form_for @request, url: complete_status_request_path(@request), method: :patch do |f| %>
+          <%= f.submit "対応済にする", class: "field-show-complete" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="show_action_completes">
+      <% if @request.status == '対応済' %>
+        <div class="show_action_complete">
+          <%= l @request.response_time %> に対応済です
+        </div>
+      <% end %>
+
+      <% if @request.status == '対応済' %>
+        <div class="show_action_status">
+          <%= form_for @request, url: request_path(@request), method: :delete, data: { turbo_method: :delete } do |f| %>
+            <%= f.submit "削除する", class: "field-show-completes" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="show_comments_main">
+    <div class="show_comments_title">依頼へのコメント</div>
+    <% @comments.each do |comment| %>
+      <div class="show_comments_index">
+        <div class="comment_contents_top">
+          <div class="comment_contents_top_left">
+            <div class="comment_contents_left">
+              <div class="comment_name"><%= "#{comment.user.affiliation.name} / #{comment.user.lastname}" %></div>
+              <div class="comment_time"><%= l comment.comment_time %></div>
+            </div>
+            <div class="comment_content"><%= comment.content %></div>
+          </div>
+            <div class="menu_icon_container">
+            <% if comment.user == current_user %>
+              <%= image_tag("menu.png", alt: "Menu", class: "menu_icon") %>
+              <div class="menu_dropdown">
+                <%= link_to "削除", request_comment_path(@request, comment), data: {turbo_method: :delete} %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="show_comments">
+  <%= form_with(model: [@request, @comment], local: true, html: {class: "form-class"}) do |form| %>
+    <%= form.text_area :content, required: true, class: "content-text", placeholder: "コメントする", rows: "2" %>
+    <%= form.submit "送信", class: "content-input" %>
+  <% end %>
+</div>

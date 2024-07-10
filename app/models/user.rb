@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
   validates :lastname, presence: true
   validates :firstname, presence: true
-  validates :affiliation_id, presence: true, numericality: { other_than: 1 ,message: "can't be blank"} 
+  validates :affiliation_id, presence: true, numericality: { other_than: 1 ,message: "を入力してください"} 
 
-  # belongs_to :affiliation
+  belongs_to :affiliation
   has_many :requests
-  # has_many :comments
+  has_many :comments
 end
