@@ -9,7 +9,7 @@
       <%= render 'shared/error_messages', model: f.object %>
         <div class="field">
           <%= f.label :品名, class: "field-text" %><br />
-          <%= f.select :article_id, options_for_select(Article.all.map { |article| [article.name, article.id] }), {}, { class: "field-input", id: "article_id" } %>
+          <%= f.select :article_id, options_for_select(Article.all.map { |article| [article.name, article.id] }), {}, { class: "field-input", id: "article_id", autofocus: true } %>
         </div>
 
         <div class="field">
