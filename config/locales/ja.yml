@@ -1,13 +1,18 @@
 ja:
   time:
     formats:
-      default: "%Y年%m月%d日 %H:%M" 
+      default: "%Y年%m月%d日 %H:%M"
 
   activemodel:
     errors:
       models:
-        article_stock:
+        user:
           attributes:
+            email:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+        article_stock:
             name:
               blank: "を入力してください"
             quantity:
@@ -32,8 +37,13 @@ ja:
   activerecord:
     errors:
       models:
-        article_stock:
+        user:
           attributes:
+            email:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+        article_stock:
             name:
               blank: "を入力してください"
             quantity:
@@ -57,8 +67,12 @@ ja:
 
   errors:
     messages:
+      not_saved:
+        one: "1つのエラーにより保存に失敗しました。入力内容を確認してください。"
+        other: "%{count}つのエラーにより保存に失敗しました。入力内容を確認してください。"
       not_saved: "保存に失敗しました。入力内容を確認してください。"
-    format: "%{attribute} %{message}"
+      blank: "を入力してください"
+    format: "%{attribute} %{message}" 
 
   devise:
     sessions:
@@ -67,3 +81,8 @@ ja:
         signed_in: "ログインしました"
       signed_out: "ログアウトしました"
       signed_in: "ログインしました"
+
+    registrations:
+      user:
+        signed_up: "アカウント登録が完了しました。"
+      signed_up: "アカウント登録が完了しました。"

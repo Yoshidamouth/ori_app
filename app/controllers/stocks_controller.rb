@@ -8,7 +8,7 @@ class StocksController < ApplicationController
   end
 
   def create
-    @article_stock = ArticleStock.new(stock_params)
+    @article_stock = ArticleStock.new(create_params)
     if @article_stock.valid?
       @article_stock.save
       redirect_to stocks_path, notice: '在庫が追加されました。'
@@ -24,7 +24,7 @@ class StocksController < ApplicationController
   def update
     @stock = Stock.includes(:article).find(params[:id])
   
-    if @stock.update(stock_params)
+    if @stock.update(update_params)
       if @stock.previous_changes.empty?
         redirect_to stocks_path
       else
@@ -35,7 +35,19 @@ class StocksController < ApplicationController
     end
   end
 
-  def stock_params
+  def destroy
+    @stock = Stock.find(params[:id])
+    @stock.destroy
+    redirect_to stocks_path, notice: '在庫が削除されました。'
+  end
+
+  private
+
+  def create_params
+    params.require(:article_stock).permit(:name, :quantity, :minimum_stock_level, article_attributes: [:id])
+  end
+  
+  def update_params
     params.require(:stock).permit(:quantity, :minimum_stock_level, article_attributes: [:name, :id])
   end
 

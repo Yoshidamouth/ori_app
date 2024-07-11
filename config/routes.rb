@@ -21,6 +21,6 @@ Rails.application.routes.draw do
       patch :complete_status
     end
   end
-  resources :stocks, only: [:index, :new, :create, :edit, :update]
+  resources :stocks, only: [:index, :new, :create, :edit, :update, :destroy]
   get 'mypage', to: 'mypage#show', as: 'mypage'
 end

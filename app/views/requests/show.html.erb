@@ -30,12 +30,12 @@
     <% if @request.user == current_user && @request.status == '未対応' %>
       <%= form_for @request do |f| %>
         <div class="show_action_left">
-          <%= f.submit "編集する", class: "field-show-text" %>
+          <%= f.submit "依頼の編集", class: "field-show-text" %>
         </div>
       <% end %>
       <div class="show_action_right">
         <%= form_for @request, url: request_path(@request), method: :delete, data: { turbo_method: :delete } do |f| %>
-          <%= f.submit "削除する", class: "field-show-text" %>
+          <%= f.submit "削除", class: "field-show-text" %>
         <% end %>
       </div>
     <% end %>
@@ -66,7 +66,7 @@
       <% if @request.status == '対応済' %>
         <div class="show_action_status">
           <%= form_for @request, url: request_path(@request), method: :delete, data: { turbo_method: :delete } do |f| %>
-            <%= f.submit "削除する", class: "field-show-completes" %>
+            <%= f.submit "削除", class: "field-show-completes" %>
           <% end %>
         </div>
       <% end %>

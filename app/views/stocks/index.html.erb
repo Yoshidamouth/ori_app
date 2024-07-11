@@ -15,7 +15,7 @@
       <%= link_to edit_stock_path(stock.id), class: 'stocks_link' do %>
         <ul class='stocks_input_lists'>
           <li class="request_list_article"><%= stock.article.name %></li>
-          <li class="stocks_list_quantity <%= 'low-stock' if stock.quantity <= stock.minimum_stock_level %>"><%= stock.quantity %></li>
+          <li class="stocks_list_quantity <%= 'low-stock' if stock.minimum_stock_level && stock.quantity <= stock.minimum_stock_level %>"><%= stock.quantity %></li>
           <li class="request_list_minimum_stock_level"><%= stock.minimum_stock_level %></li>
         </ul>
       <% end %>

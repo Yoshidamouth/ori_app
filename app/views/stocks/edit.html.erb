@@ -2,36 +2,35 @@
 
 <div class="request_main">
   <div class="request_contents">
-    <div class="request_title">在庫情報を編集する</div>
+    <div class="request_title">在庫情報の編集</div>
 
-    <div class="request_content">
-      <%= form_with model: @stock, local: true do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
-
+    <%= form_with model: @stock, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="request_content">
         <div class="field">
           <%= f.label :name, "品名", class: "field-text" %><br />
           <%= f.fields_for :article do |a| %>
             <%= a.text_field :name, value: @stock.article.name, class: "field-input", id: "name" %>
           <% end %>
         </div>
-
         <div class="field">
           <%= f.label :quantity, "在庫数", class: "field-text" %><br />
           <%= f.text_field :quantity, class: "field-input", id: "quantity" %>
         </div>
-
         <div class="field">
           <%= f.label :minimum_stock_level, "必要最低数", class: "field-text" %><br />
           <%= f.text_field :minimum_stock_level, class: "field-input", id: "minimum_stock_level" %>
         </div>
-
-        <div class="request_actions">
-          <div class="actions">
-            <%= f.submit "編集する", class: "field-login-text" %>
-          </div>
+      </div>
+      <div class="stocks_actions">
+        <div class="field-stock-left">
+          <%= link_to "削除", stock_path(@stock), data: {turbo_method: :delete}, class:"field-stock-text" %>
         </div>
-      <% end %>
-    </div>
+        <div class="actions">
+          <%= f.submit "変更する", class: "field-stock-right" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
