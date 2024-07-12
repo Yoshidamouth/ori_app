@@ -65,7 +65,7 @@
 | ------------------- | ---------- | ----------- |
 | article_id          | references | null: false, foreign_key: true |
 | quantity            | integer    | null: false |
-| minimum_stock_level | integer    | null: false |
+| minimum_stock_level | integer    |             |
 
 ### Association
 - belongs_to :article
