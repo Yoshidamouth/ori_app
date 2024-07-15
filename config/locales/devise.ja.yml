@@ -8,3 +8,5 @@ ja:
       user:
         invalid: "メールアドレスまたはパスワードが間違っています"
       invalid: "メールアドレスまたはパスワードが間違っています"
+      not_found_in_database: "メールアドレスまたはパスワードが間違っています"
+      not_found_in_database: "メールアドレスまたはパスワードが間違っています"
