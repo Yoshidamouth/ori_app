@@ -1,5 +1,9 @@
 ja:
   devise:
+    registrations:
+      user:
+        updated: "アカウント情報が更新されました"
+      updated: "アカウント情報が更新されました"
     failure:
       user:
         invalid: "メールアドレスまたはパスワードが間違っています"
