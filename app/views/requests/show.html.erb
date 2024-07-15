@@ -30,7 +30,7 @@
     <% if @request.user == current_user && @request.status == '未対応' %>
       <%= form_for @request do |f| %>
         <div class="show_action_left">
-          <%= f.submit "依頼の編集", class: "field-show-text" %>
+          <%= f.submit "編集", class: "field-show-text" %>
         </div>
       <% end %>
       <div class="show_action_right">
