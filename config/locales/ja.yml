@@ -13,6 +13,7 @@ ja:
             password:
               blank: "を入力してください"
         article_stock:
+          attributes:
             name:
               blank: "を入力してください"
             quantity:
@@ -44,6 +45,7 @@ ja:
             password:
               blank: "を入力してください"
         article_stock:
+          attributes:
             name:
               blank: "を入力してください"
             quantity:
