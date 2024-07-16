@@ -1,35 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const affiliationFilter = document.getElementById('affiliation_filter');
-  const articleFilter = document.getElementById('article_filter');
-  const statusFilter = document.getElementById('status_filter');
-
-  const requestLists = document.querySelectorAll('.request_input_lists');
-
+function profit() {
   const filterRequests = () => {
-    const selectedAffiliation = affiliationFilter.value;
-    const selectedArticle = articleFilter.value;
-    const selectedStatus = statusFilter.value;
+    const affiliationFilter = document.getElementById("affiliation_filter");
+    const articleFilter = document.getElementById("article_filter");
+    const statusFilter = document.getElementById("status_filter");
+    const requestsList = document.getElementById("requests_list");
 
-    requestLists.forEach(list => {
-      const affiliation = list.querySelector('.request_list_affiliation').textContent;
-      const article = list.querySelector('.request_list_article').textContent;
-      const status = list.querySelector('.request_list_status').textContent;
+    const affiliation = affiliationFilter.value.toLowerCase();
+    const article = articleFilter.value.toLowerCase();
+    const status = statusFilter.value.toLowerCase();
 
-      const affiliationMatch = selectedAffiliation === "" || affiliation.includes(selectedAffiliation);
-      const articleMatch = selectedArticle === "" || article.includes(selectedArticle);
-      const statusMatch = selectedStatus === "" || status.includes(selectedStatus);
+    Array.from(requestsList.children).forEach(request => {
+      const requestAffiliation = request.querySelector(".request_list_affiliation").textContent.toLowerCase();
+      const requestArticle = request.querySelector(".request_list_article").textContent.toLowerCase();
+      const requestStatus = request.querySelector(".request_list_status").textContent.toLowerCase();
 
-      if (affiliationMatch && articleMatch && statusMatch) {
-        list.style.display = "";
+      const matchesAffiliation = !affiliation || requestAffiliation.includes(affiliation);
+      const matchesArticle = !article || requestArticle.includes(article);
+      const matchesStatus = !status || requestStatus.includes(status);
+
+      if (matchesAffiliation && matchesArticle && matchesStatus) {
+        request.style.display = "";
       } else {
-        list.style.display = "none";
+        request.style.display = "none";
       }
     });
   };
 
-  affiliationFilter.addEventListener('change', filterRequests);
-  articleFilter.addEventListener('change', filterRequests);
-  statusFilter.addEventListener('change', filterRequests);
-  
-  filterRequests();
-});
+  const initFilter = () => {
+    filterRequests();
+
+    const affiliationFilter = document.getElementById("affiliation_filter");
+    const articleFilter = document.getElementById("article_filter");
+    const statusFilter = document.getElementById("status_filter");
+
+    affiliationFilter.addEventListener("change", filterRequests);
+    articleFilter.addEventListener("change", filterRequests);
+    statusFilter.addEventListener("change", filterRequests);
+  };
+
+  document.addEventListener("turbo:load", initFilter);
+  document.addEventListener("turbo:render", initFilter);
+}
+
+profit();

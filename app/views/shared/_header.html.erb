@@ -31,37 +31,27 @@
           <% end %>
         <% end %>
 
+        <% if current_user.affiliation_id != 1 && current_user.affiliation_id != 2 && controller_name == 'requests' && ['index', 'show'].include?(action_name) %>
+          <%= link_to new_request_path do %>
+            <div class="header_icon_container">
+              <%= image_tag("irai2.png", alt: "Irai Avatar", class: "header_icon") %>
+              <div class="icon_text">依頼する</div>
+            </div>
+          <% end %>
+        <% end %>
+
         <% if is_editing_stock || (current_user.affiliation_id == 2 && controller_name == 'stocks' && ['new', 'create'].include?(action_name)) %>
           <%= link_to stocks_path do %>
             <%= image_tag("close2.png", alt: "Close", class: "close_icon") %>
           <% end %>
         <% end %>
 
-        <% if current_user.affiliation_id != 2 && controller_name == 'requests' && ['new', 'create'].include?(action_name) %>
-          <%= link_to authenticated_root_path do %>
-            <%= image_tag("close2.png", alt: "Close", class: "close_icon") %>
-          <% end %>
-        <% end %>
-
-        <% if current_user.affiliation_id != 2 || !(is_editing_stock || (['requests', 'stocks'].include?(controller_name) && ['new', 'create'].include?(action_name))) %>
-          <% if ![1, 2].include?(current_user.affiliation_id) %>
-            <% unless is_editing_stock || (controller_name == 'requests' && ['new', 'create'].include?(action_name)) %>
-              <%= link_to new_request_path do %>
-                <div class="header_icon_container">
-                  <%= image_tag("irai2.png", alt: "Irai Avatar", class: "header_icon") %>
-                  <div class="icon_text">依頼する</div>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-
-          <% unless is_editing_stock || (controller_name == 'requests' && ['new', 'create'].include?(action_name)) %>
-            <%= link_to mypage_path do %>
-              <div class="header_icon_container">
-                <%= image_tag("user2.png", alt: "User Avatar", class: "header_icon") %>
-                <div class="icon_text">マイページ</div>
-              </div>
-            <% end %>
+        <% unless is_editing_stock || (controller_name == 'requests' && ['new', 'create'].include?(action_name)) %>
+          <%= link_to mypage_path do %>
+            <div class="header_icon_container">
+              <%= image_tag("user2.png", alt: "User Avatar", class: "header_icon") %>
+              <div class="icon_text">マイページ</div>
+            </div>
           <% end %>
         <% end %>
 
