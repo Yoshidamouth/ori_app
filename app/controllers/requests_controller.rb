@@ -1,9 +1,10 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :destroy, :update_status, :complete_status]
+  before_action :set_request, only: [:show, :destroy, :update_status, :complete_status, :edit, :update]
 
   def index
     @requests = Request.all
-    @affiliations = Affiliation.all
+    @affiliations = Affiliation.where.not(name: '---')
+    @articles = Article.all
   end
 
   def new
@@ -27,6 +28,17 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     redirect_to requests_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @request.update(request_params)
+      redirect_to @request, notice: '依頼が更新されました。'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def update_status
@@ -57,14 +69,6 @@ class RequestsController < ApplicationController
       flash[:alert] = "在庫数が足りません"
       redirect_to @request, status: :unprocessable_entity
     end
-  end
-
-  def filter
-    @requests = Request.all
-    @requests = @requests.where(user: { affiliation_id: params[:affiliation_id] }) if params[:affiliation_id].present?
-    @requests = @requests.where(status: params[:status]) if params[:status].present?
-
-    render json: @requests.to_json(include: { user: { only: :lastname, include: { affiliation: { only: :name } } }, article: { only: :name } })
   end
 
   private

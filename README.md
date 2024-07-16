@@ -58,10 +58,10 @@ https://gyazo.com/98404fdeed797e46250517023605ec11
 # 実装した機能についての画像やGIFおよびその説明
 
 1. 依頼投稿機能
-https://gyazo.com/cde7834e86ef9de2b4b6171c9df1a304
+https://gyazo.com/9e041c7bd553e09372f8d7c4c3d6c6ec
 
 2. 依頼対応機能
-https://gyazo.com/f15e4bc062402d28faa93ad7ba56e9a7
+https://gyazo.com/b1ee35203f4cf7c1a937453cee511193
 
 3. 在庫管理機能
 https://gyazo.com/14f9b6a40419783ca4e36404fab8edbe
@@ -69,10 +69,12 @@ https://gyazo.com/14f9b6a40419783ca4e36404fab8edbe
 4. コメント機能
 https://gyazo.com/3aba88ce0c95fe99052636a3b715861e
 
+5. 依頼のフィルタリング機能
+https://gyazo.com/be590a87e8fa5fbe2d4dbac7528acb19
+
 # 実装予定の機能
 
-1. 依頼の状況に応じて分類し、状況別に表示できるようにする
-2. 依頼の投稿、対応、コメントがついた際に通知がいくようにする
+依頼の投稿、対応、コメントがついた際に通知がいくようにする
 
 # データベース設計
 https://gyazo.com/734c94f49df3004a2290ea1152f36ff9

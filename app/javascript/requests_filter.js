@@ -1,34 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const affiliationFilter = document.getElementById('affiliation_filter');
-  const statusFilter = document.getElementById('status_filter');
+function profit() {
+  const filterRequests = () => {
+    const affiliationFilter = document.getElementById("affiliation_filter");
+    const articleFilter = document.getElementById("article_filter");
+    const statusFilter = document.getElementById("status_filter");
+    const requestsList = document.getElementById("requests_list");
 
-  affiliationFilter.addEventListener('change', updateRequests);
-  statusFilter.addEventListener('change', updateRequests);
+    const affiliation = affiliationFilter.value.toLowerCase();
+    const article = articleFilter.value.toLowerCase();
+    const status = statusFilter.value.toLowerCase();
 
-  function updateRequests() {
-    const affiliationId = affiliationFilter.value;
-    const status = statusFilter.value;
+    Array.from(requestsList.children).forEach(request => {
+      const requestAffiliation = request.querySelector(".request_list_affiliation").textContent.toLowerCase();
+      const requestArticle = request.querySelector(".request_list_article").textContent.toLowerCase();
+      const requestStatus = request.querySelector(".request_list_status").textContent.toLowerCase();
 
-    fetch(`/requests/filter?affiliation_id=${affiliationId}&status=${status}`)
-      .then(response => response.json())
-      .then(data => {
-        const requestsBottom = document.querySelector('.requests_bottom');
-        requestsBottom.innerHTML = '';
+      const matchesAffiliation = !affiliation || requestAffiliation.includes(affiliation);
+      const matchesArticle = !article || requestArticle.includes(article);
+      const matchesStatus = !status || requestStatus.includes(status);
 
-        data.forEach(request => {
-          const requestElement = document.createElement('ul');
-          requestElement.classList.add('request_input_lists');
-          requestElement.innerHTML = `
-            <li class="request_list_request_time">${request.request_time}</li>
-            <li class="request_list_affiliation">${request.user.affiliation.name} / ${request.user.lastname}</li>
-            <li class="request_list_article">${request.article.name}</li>
-            <li class="request_list_quantity_s">${request.quantity}</li>
-            <li class="request_list_status">${request.status}</li>
-            <li class="request_list_response_user">${request.response_user ? request.response_user.lastname : ''}</li>
-          `;
-          requestsBottom.appendChild(requestElement);
-        });
-      })
-      .catch(error => console.error('Fetch error:', error));
-  }
-});
+      if (matchesAffiliation && matchesArticle && matchesStatus) {
+        request.style.display = "";
+      } else {
+        request.style.display = "none";
+      }
+    });
+  };
+
+  const initFilter = () => {
+    filterRequests();
+
+    const affiliationFilter = document.getElementById("affiliation_filter");
+    const articleFilter = document.getElementById("article_filter");
+    const statusFilter = document.getElementById("status_filter");
+
+    affiliationFilter.addEventListener("change", filterRequests);
+    articleFilter.addEventListener("change", filterRequests);
+    statusFilter.addEventListener("change", filterRequests);
+  };
+
+  document.addEventListener("turbo:load", initFilter);
+  document.addEventListener("turbo:render", initFilter);
+}
+
+profit();
