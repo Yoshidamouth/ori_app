@@ -18,18 +18,18 @@
             <%= f.password_field :password, autocomplete: "current-password", class: "field-password-input" %>
           </div>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="actions">
+          <%# if devise_mapping.rememberable? %>
+            <%# <div class="actions">
               <%= f.check_box :remember_me %>
-              <%= f.label :次回から自動的にログイン %>
-            </div>
-          <% end %>
+              <%#= f.label :次回から自動的にログイン %>
+            <%# </div> %>
+          <%# end %>
 
-          <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-            <div class="actions">
+          <%# if devise_mapping.recoverable? && controller_name != 'passwords' %>
+            <%# <div class="actions">
               <%= link_to "パスワードをお忘れですか?", new_password_path(resource_name) %>
-            </div>
-          <% end %>
+            <%# </div> %>
+          <%# end %>
 
         <div class="login_contents">
           <div class="actions">

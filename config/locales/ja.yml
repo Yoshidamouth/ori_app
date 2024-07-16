@@ -44,6 +44,8 @@ ja:
               blank: "を入力してください"
             password:
               blank: "を入力してください"
+            current_password:
+              invalid: "現在のパスワードが正しくありません"
         article_stock:
           attributes:
             name:
@@ -74,7 +76,8 @@ ja:
         other: "%{count}つのエラーにより保存に失敗しました。入力内容を確認してください。"
       not_saved: "保存に失敗しました。入力内容を確認してください。"
       blank: "を入力してください"
-    format: "%{attribute} %{message}" 
+      invalid: "が無効です"
+      not_found: "が見つかりません"
 
   devise:
     sessions:

@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="users_main">
+<div class="users_registration_main">
   <div class="users_contents">
     <div class="users_contents_top">
       <div class="users_title">ユーザー情報を編集する</div>
@@ -20,25 +20,6 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password, "パスワード", class: "field-text" %><br />
-          <% if @minimum_password_length %>
-            <div class="field-text">(<%= @minimum_password_length %> 文字以上必要です)</div>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "field-password-input" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation, "パスワード(確認)", class: "field-text" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-input" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :current_password, "現在のパスワード", class: "field-text" %><br />
-          <div class="field-text">(変更を確認するために現在のパスワードが必要です)</div>
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "field-input" %>
-        </div>
-
-        <div class="field">
           <%= f.label :lastname, "姓", class: "field-text" %><br />
           <%= f.text_field :lastname, class:"input-default field-input", id:"lastname", autofocus: true %>
         </div>
@@ -53,9 +34,15 @@
           <%= f.collection_select :affiliation_id, Affiliation.all, :id, :name, {}, {class: "field-input", id: "affiliation_id"} %>
         </div>
 
+        <div class="field">
+          <%= f.label :current_password, "現在のパスワード", class: "field-text" %><br />
+          <div class="field-text">(変更を確認するために現在のパスワードが必要です)</div>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "field-input" %>
+        </div>
+
         <div class="login_contents">
           <div class="actions">
-            <%= f.submit "編集", class: "field-login-text" %>
+            <%= f.submit "変更する", class: "field-login-text" %>
           </div>
         </div>
 

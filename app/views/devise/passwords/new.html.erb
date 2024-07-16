@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
+<%= render "shared/header" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="users_main">
+  <div class="users_contents">
+    <div class="users_contents_top">
+      <div class="users_title">パスワードをお忘れですか?</div>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="users_contents_botoom">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email, "メール", class: "field-text" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-input" %>
+        </div>
+
+        <div class="login_contents">
+          <div class="actions">
+            <%= f.submit "送信", class: "field-login-text" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= render "shared/footer" %>
