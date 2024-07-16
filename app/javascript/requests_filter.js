@@ -1,34 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const affiliationFilter = document.getElementById('affiliation_filter');
+  const articleFilter = document.getElementById('article_filter');
   const statusFilter = document.getElementById('status_filter');
 
-  affiliationFilter.addEventListener('change', updateRequests);
-  statusFilter.addEventListener('change', updateRequests);
+  const requestLists = document.querySelectorAll('.request_input_lists');
 
-  function updateRequests() {
-    const affiliationId = affiliationFilter.value;
-    const status = statusFilter.value;
+  const filterRequests = () => {
+    const selectedAffiliation = affiliationFilter.value;
+    const selectedArticle = articleFilter.value;
+    const selectedStatus = statusFilter.value;
 
-    fetch(`/requests/filter?affiliation_id=${affiliationId}&status=${status}`)
-      .then(response => response.json())
-      .then(data => {
-        const requestsBottom = document.querySelector('.requests_bottom');
-        requestsBottom.innerHTML = '';
+    requestLists.forEach(list => {
+      const affiliation = list.querySelector('.request_list_affiliation').textContent;
+      const article = list.querySelector('.request_list_article').textContent;
+      const status = list.querySelector('.request_list_status').textContent;
 
-        data.forEach(request => {
-          const requestElement = document.createElement('ul');
-          requestElement.classList.add('request_input_lists');
-          requestElement.innerHTML = `
-            <li class="request_list_request_time">${request.request_time}</li>
-            <li class="request_list_affiliation">${request.user.affiliation.name} / ${request.user.lastname}</li>
-            <li class="request_list_article">${request.article.name}</li>
-            <li class="request_list_quantity_s">${request.quantity}</li>
-            <li class="request_list_status">${request.status}</li>
-            <li class="request_list_response_user">${request.response_user ? request.response_user.lastname : ''}</li>
-          `;
-          requestsBottom.appendChild(requestElement);
-        });
-      })
-      .catch(error => console.error('Fetch error:', error));
-  }
+      const affiliationMatch = selectedAffiliation === "" || affiliation.includes(selectedAffiliation);
+      const articleMatch = selectedArticle === "" || article.includes(selectedArticle);
+      const statusMatch = selectedStatus === "" || status.includes(selectedStatus);
+
+      if (affiliationMatch && articleMatch && statusMatch) {
+        list.style.display = "";
+      } else {
+        list.style.display = "none";
+      }
+    });
+  };
+
+  affiliationFilter.addEventListener('change', filterRequests);
+  articleFilter.addEventListener('change', filterRequests);
+  statusFilter.addEventListener('change', filterRequests);
+  
+  filterRequests();
 });

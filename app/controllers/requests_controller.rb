@@ -3,7 +3,8 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all
-    @affiliations = Affiliation.all
+    @affiliations = Affiliation.where.not(name: '---')
+    @articles = Article.all
   end
 
   def new
@@ -57,14 +58,6 @@ class RequestsController < ApplicationController
       flash[:alert] = "在庫数が足りません"
       redirect_to @request, status: :unprocessable_entity
     end
-  end
-
-  def filter
-    @requests = Request.all
-    @requests = @requests.where(user: { affiliation_id: params[:affiliation_id] }) if params[:affiliation_id].present?
-    @requests = @requests.where(status: params[:status]) if params[:status].present?
-
-    render json: @requests.to_json(include: { user: { only: :lastname, include: { affiliation: { only: :name } } }, article: { only: :name } })
   end
 
   private

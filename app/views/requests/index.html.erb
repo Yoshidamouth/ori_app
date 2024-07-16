@@ -5,15 +5,39 @@
     <div class="requests_title">Requests</div>
     <ul class='requests_lists'>
       <li class="request_list_request_time">時間</li>
-      <li class="request_list_affiliation">支店 / 依頼者</li>
-      <li class="request_list_article">品名</li>
+      <li class="request_list_affiliation">
+        支店 / 依頼者
+        <select id="affiliation_filter">
+          <option value="">全て表示</option>
+          <% @affiliations.each do |affiliation| %>
+            <option value="<%= affiliation.name %>"><%= affiliation.name %></option>
+          <% end %>
+        </select>
+      </li>
+      <li class="request_list_article">
+        品名
+        <select id="article_filter">
+          <option value="">全て表示</option>
+          <% @articles.each do |article| %>
+            <option value="<%= article.name %>"><%= article.name %></option>
+          <% end %>
+        </select>
+      </li>
       <li class="request_list_quantity">数量</li>
-      <li class="request_list_status_s">状況</li>
+      <li class="request_list_status_s">
+        状況
+        <select id="status_filter">
+          <option value="">全て表示</option>
+          <option value="未対応">未対応</option>
+          <option value="対応中">対応中</option>
+          <option value="対応済">対応済</option>
+        </select>
+      </li>
       <li class="request_list_response_user">対応者</li>
     </ul>
   </div>
 
-  <div class="requests_bottom">
+  <div class="requests_bottom" id="requests_list">
     <% @requests.each do |request| %>
       <%= link_to request_path(request.id), class: "status-#{request.status}" do %> 
         <ul class='request_input_lists'>
