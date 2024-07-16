@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :destroy, :update_status, :complete_status]
+  before_action :set_request, only: [:show, :destroy, :update_status, :complete_status, :edit, :update]
 
   def index
     @requests = Request.all
@@ -28,6 +28,17 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     redirect_to requests_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @request.update(request_params)
+      redirect_to @request, notice: '依頼が更新されました。'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def update_status

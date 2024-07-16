@@ -83,6 +83,21 @@
   border-radius: 50px;
 }
 
+.field-show-text-edit{
+  text-align: center;
+  line-height: 45px;
+  height: 45px;
+  width: 280px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background-color: #2E457C;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  display : block;
+}
+
 .show_action_complete{
   font-size: 25px;
   font-weight: bold;

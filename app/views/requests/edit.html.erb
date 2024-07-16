@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+
+<div class="request_main">
+  <div class="request_contents">
+    <div class="request_title">依頼の編集</div>
+
+    <div class="request_content">
+      <%= form_with model: @request, url: request_path(@request), method: :patch do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class="field">
+          <%= f.label :品名, class: "field-text" %><br />
+          <%= f.select :article_id, options_for_select([["選択してください", ""]] + Article.all.map { |article| [article.name, article.id] }), {}, { class: "field-input", id: "article_id", autofocus: true } %>
+        </div>
+
+        <div class="field">
+          <%= f.label :数, class: "field-text" %><br />
+          <%= f.text_field :quantity, class:"field-input", id:"quantity" %>
+        </div>
+
+        <div class="request_actions">
+          <div class="actions">
+            <%= f.submit "変更する", class: "field-login-text" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+<%= render "shared/footer" %>

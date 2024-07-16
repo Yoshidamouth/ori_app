@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: :index
-  resources :requests, only: [:index, :new, :create, :show, :destroy] do
+  resources :requests do
     resources :comments, only: [:create, :destroy]
 
     collection do
