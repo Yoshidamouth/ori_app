@@ -26,10 +26,12 @@
           </div>
 
           <div class="field">
-            <%= f.label :パスワード, class: "field-text" %><br />
-            <% if @minimum_password_length %>
-            <div class="field-text">(<%= @minimum_password_length %> 文字以上必要です)</div>
-            <% end %><br />
+            <div class="field_password">
+              <%= f.label :パスワード, class: "field-text" %><br />
+              <% if @minimum_password_length %>
+              <div class="field-text">(6文字以上必要です)</div>
+              <% end %><br />
+            </div>
             <%= f.password_field :password, autocomplete: "new-password", class: "field-password-input" %>
           </div>
 

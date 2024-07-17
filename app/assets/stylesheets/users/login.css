@@ -39,7 +39,6 @@
 }
 
 .field-text{
-  width: 500px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -68,7 +67,7 @@
 }
 
 .field-password-input{
-  margin-bottom: 50px;
+  margin: 10px 0 50px;
   height: 80px;
   width: 530px;
   border-radius: 10px;
@@ -100,4 +99,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.field_password{
+  display: flex;
+  width: 530px;
 }
