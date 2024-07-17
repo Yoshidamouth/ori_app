@@ -7,6 +7,7 @@ ja:
     failure:
       user:
         invalid: "メールアドレスまたはパスワードが間違っています"
+        already_authenticated: "すでにログインしています"
       invalid: "メールアドレスまたはパスワードが間違っています"
       not_found_in_database: "メールアドレスまたはパスワードが間違っています"
-      not_found_in_database: "メールアドレスまたはパスワードが間違っています"
+      unauthenticated: "ログインしてください"

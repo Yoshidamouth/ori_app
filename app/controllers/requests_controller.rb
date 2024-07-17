@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_if_not_branch_user, only: [:edit, :new]
   before_action :set_request, only: [:show, :destroy, :update_status, :complete_status, :edit, :update]
 
   def index
@@ -31,6 +33,9 @@ class RequestsController < ApplicationController
   end
 
   def edit
+    if current_user.id != @request.user_id
+      redirect_to '/'
+    end
   end
 
   def update
@@ -79,5 +84,11 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:article_id, :quantity).merge(user_id: current_user.id, request_time: Time.current, status: "未対応", response_user_id: nil, response_time: nil)
+  end
+
+  def redirect_if_not_branch_user
+    unless current_user.affiliation_id != 2
+      redirect_to '/'
+    end
   end
 end

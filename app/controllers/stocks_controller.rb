@@ -1,4 +1,7 @@
 class StocksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_if_not_branch_user
+
   def index
     @stocks =  Stock.all
   end
@@ -51,5 +54,10 @@ class StocksController < ApplicationController
     params.require(:stock).permit(:quantity, :minimum_stock_level, article_attributes: [:name, :id])
   end
 
+  def redirect_if_not_branch_user
+    if current_user.affiliation_id != 2
+      redirect_to '/'
+    end
+  end  
 end
 
