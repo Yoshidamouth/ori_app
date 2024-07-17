@@ -10,8 +10,14 @@ ja:
           attributes:
             email:
               blank: "を入力してください"
+              taken: "はすでに存在します"
+              invalid: "の形式が正しくありません"
             password:
               blank: "を入力してください"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"
+            password_confirmation:
+              confirmation: "パスワード確認が一致しません"
         article_stock:
           attributes:
             name:
@@ -42,10 +48,16 @@ ja:
           attributes:
             email:
               blank: "を入力してください"
+              taken: "はすでに存在します"
+              invalid: "の形式が正しくありません"
             password:
               blank: "を入力してください"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"
             current_password:
               invalid: "現在のパスワードが正しくありません"
+            password_confirmation:
+              confirmation: "パスワード確認が一致しません"
         article_stock:
           attributes:
             name:

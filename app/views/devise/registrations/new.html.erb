@@ -3,11 +3,11 @@
   <div class="users_registration_main">
     <div class="users_contents">
       <div class="users_contents_top">
-        <div class="users_title">アカウントを作成する</div>
+        <div class="users_title">アカウントを作成</div>
       </div>
 
       <div class="users_contents_botoom">
-        <%= form_for @user, url: user_registration_path do |f| %>
+        <%= form_for @user, url: user_registration_path, class: 'needs-validation', html: {novalidate: true} do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
@@ -45,7 +45,7 @@
 
         <div class="login_contents">
           <div class="actions">
-            <%= f.submit "アカウントを作成する", class: "field-login-text" %>
+            <%= f.submit "アカウントを作成", class: "field-login-text" %>
           </div>
           <% end %>
         </div>
