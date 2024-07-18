@@ -14,8 +14,14 @@ https://sync-app-k5sn.onrender.com
 
 ・ Basic認証パスワード：2222
 ・ Basic認証ID：admin
-・ メールアドレス：xxx@xxx.com
-・ パスワード：xxXXxX
+
+### 本社アカウント
+・ メールアドレス：a@a
+・ パスワード：aaaaaa
+
+### 支店アカウント
+・ メールアドレス：b@b
+・ パスワード：bbbbbb
 
 # 利用方法
 
