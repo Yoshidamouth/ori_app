@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :destroy, :update_status, :complete_status, :edit, :update]
 
   def index
-    @requests = Request.all
+    @requests = Request.order(created_at: :desc)
     @affiliations = Affiliation.where.not(name: '---')
     @articles = Article.all
   end
