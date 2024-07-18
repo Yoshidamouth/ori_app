@@ -181,5 +181,3 @@ https://gyazo.com/82274a3367c86c3e1af3d655afe5c362
 
 ## テキストエディタ
 ・ 推奨エディタ: Visual Studio Code
-
-ローカルでの動作方法の記載がよくわからなかった
